@@ -1,4 +1,4 @@
-# 🛡️ Détection de Fraude Carte Bancaire — Projet de Machine Learning
+# 🛡️ Détection de fraude cartes bancaires – Analyse de données et contrôles
 
 ## 📌 Présentation du projet
 
@@ -23,84 +23,66 @@ Le dataset contient des variables anonymisées (V1 à V28 issues d’une PCA), a
 
 ---
 
-## 🎯 Objectifs du projet
-
-* Analyser le dataset et comprendre la distribution des transactions légitimes et frauduleuses.
-* Traiter le déséquilibre très important des classes (fraudes = minorité).
-* Mettre en place un pipeline d’apprentissage supervisé pour prédire les fraudes.
-* Entraîner et comparer plusieurs modèles :
-
-  * Régression Logistique
-  * Decision Tree Classifier
-  * Random Forest Classifier
-  * Gradient Boosting Classifier
-* Utiliser des métriques adaptées pour un problème déséquilibré :
-
-  * Précision
-  * Recall
-  * F1-score
-  * Matrice de confusion
-* Identifier les variables les plus importantes pour le meilleur modèle (Random Forest).
-* Fournir une analyse finale des performances et insights.
+## 🎯 Objectif du projet
+Ce projet a pour objectif d’analyser des transactions par carte bancaire afin de :
+- détecter des comportements atypiques pouvant indiquer une fraude,
+- proposer des règles de contrôle et des indicateurs de risque,
+- assister les équipes métier dans la prévention et le suivi de la fraude.
 
 ---
 
-## 🔧 Pipeline du projet
-
-1. **Exploration des données (EDA)**
-
-   * Analyse des colonnes (`info()`, statistiques descriptives)
-   * Visualisation de la distribution de la classe
-   * Analyse du montant des transactions
-   * Vérification des valeurs manquantes
-
-2. **Préparation des données**
-
-   * Séparation X / y
-   * Découpage train / test
-   * Standardisation éventuelle (ex: Amount)
-   * Utilisation de métriques adaptées au déséquilibre des classes
-
-3. **Entraînement des modèles**
-
-   * Logistic Regression
-   * Decision Tree Classifier
-   * Random Forest Classifier
-   * Gradient Boosting Classifier
-   * Comparaison des performances via un tableau
-
-4. **Sélection du meilleur modèle**
-
-   * **Random Forest** → meilleur compromis précision / rappel
-   * Analyse des importances des variables (V14, V12, V10 ressortent comme essentielles)
+## 🛠️ Outils & technologies
+- **Python** : Pandas, NumPy, Matplotlib, Seaborn  
+- **Machine Learning** : scikit-learn (modèles de classification)  
+- **Analyse de données** : statistiques descriptives, analyse exploratoire  
 
 ---
 
-## 📈 Résultats principaux
+## 🔍 Approche analytique et contrôles
+L’approche adoptée repose sur une logique proche des processus de contrôle :
 
-* Les modèles simples (LogReg, Decision Tree) donnent des résultats corrects mais limités.
-* **Random Forest** → meilleur compromis précision / rappel.
-* Gradient Boosting performant mais légèrement inférieur au Random Forest.
-* Quelques composantes PCA dominent le signal de fraude.
-
----
-
-## 📊 Insights importants
-
-* L’**accuracy** seule n’est pas suffisante pour un dataset déséquilibré.
-* Le **recall** est clé : mieux vaut détecter plus de fraudes même avec quelques faux positifs.
-* Certaines variables anonymisées sont nettement plus importantes que d’autres.
-* Random Forest → modèle robuste et interprétable.
+- Nettoyage et préparation des données (valeurs manquantes, variables aberrantes)
+- Analyse exploratoire des comportements transactionnels
+- Identification de schémas atypiques (montants élevés, fréquences anormales)
+- Proposition de règles de contrôle simples (seuils, volumes, répétitions)
+- Construction d’indicateurs de risque exploitables
 
 ---
 
-## 🧪 Technologies utilisées
+## 📈 Résultats et enseignements
+- Mise en évidence de différences significatives entre transactions normales et frauduleuses
+- Identification de variables clés contributrices au risque de fraude
+- Création d’indicateurs permettant de prioriser les transactions à analyser
+- Amélioration de la lisibilité des données pour une exploitation opérationnelle
 
-* Python
-* Pandas, NumPy
-* Matplotlib, Seaborn
-* Scikit-learn
-* Jupyter Notebook
+---
+
+## 🤖 Utilisation du machine learning
+Des modèles de classification ont été utilisés afin d’assister la détection des
+transactions potentiellement frauduleuses.
+
+Le machine learning intervient ici comme un **outil complémentaire** permettant :
+- de prioriser les alertes,
+- d’améliorer la détection des comportements à risque,
+- de soutenir l’analyse humaine.
+
+Il ne constitue pas une décision automatique, mais une aide à la prévention de la fraude.
+
+---
+
+## 🧑‍💻 Ce que ce projet démontre
+- Capacité à analyser des données transactionnelles complexes
+- Compréhension des enjeux de fraude, de contrôle et de gestion des risques
+- Rigueur analytique et esprit critique
+- Capacité à utiliser des outils de machine learning de manière encadrée et pertinente
+
+---
+
+## 🚀 Perspectives d’amélioration
+- Intégration de nouvelles règles de contrôle métier
+- Enrichissement des indicateurs de risque
+- Tests de méthodes complémentaires de détection d’anomalies
+- Adaptation à des volumes de données plus importants
 
 ---
 
